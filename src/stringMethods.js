@@ -60,16 +60,14 @@ function sliceString(phrase, position1, position2) {
 }
 
 
-function splitString(phrase,separator) {
-    if (phrase) {
-        if (typeof(phrase) == 'number') {
-            return 'Value given to function was of Data Type: number';
-        } else {
-            return phrase.split(separator);
-        }
-    } else {
+function splitString(phrase, separator) {
+    if (!phrase) {
         return 'String is empty';
     }
+    if (typeof(phrase) !== 'string') {
+        return `Value given to function was of Data Type: ${typeof(phrase)}`;
+    }
+    return phrase.split(separator);
 }
 
 
