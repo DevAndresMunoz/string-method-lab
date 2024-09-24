@@ -83,16 +83,15 @@ function convertToLowerCase(phrase) {
 
 
 function convertToUpperCase(phrase) {
-    if (phrase) {
-        if (typeof(phrase) == 'number') {
-            return 'Value given to function was of Data Type: number';
-        } else {
-            return phrase.toUpperCase();
-        }
-    } else {
+    if (!phrase) {
         return 'String is empty';
     }
+    if (typeof(phrase) !== 'string') {
+        return `Value given to function was of Data Type: ${typeof(phrase)}`;
+    }
+    return phrase.toUpperCase();
 }
+
 
 
 function trimString(text) {
