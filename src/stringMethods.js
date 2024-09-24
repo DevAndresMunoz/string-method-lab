@@ -104,19 +104,21 @@ function trimString(text) {
 }
 
 
-function replaceSubstring(phrase,searchTerm,replacementTerm) {
-    if (phrase && searchTerm && replacementTerm) {
-        if ((typeof(searchTerm) || typeof(replacementTerm)) == 'number') {
-            return 'Value given to function was of Data Type: number';
-        } else {
-            return phrase.replace(searchTerm,replacementTerm);
-        }
-    } else {
+function replaceSubstring(phrase, searchTerm, replacementTerm) {
+    if (!phrase || !searchTerm || !replacementTerm) {
         return 'String is empty';
     }
+    if (typeof(phrase) !== 'string') {
+        return `Value given to function was of Data Type: ${typeof(phrase)}`;
+    }
+    if (typeof(searchTerm) !== 'string') {
+        return `Value given to function was of Data Type: ${typeof(searchTerm)}`;
+    }
+    if (typeof(replacementTerm) !== 'string') {
+        return `Value given to function was of Data Type: ${typeof(replacementTerm)}`;
+    }
+    return phrase.replace(searchTerm, replacementTerm);
 }
-
-
 
 
 module.exports = {
