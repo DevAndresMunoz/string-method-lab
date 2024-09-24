@@ -72,15 +72,13 @@ function splitString(phrase, separator) {
 
 
 function convertToLowerCase(phrase) {
-    if (phrase) {
-        if (typeof(phrase) == 'number') {
-            return 'Value given to function was of Data Type: number';
-        } else {
-            return phrase.toLowerCase();
-        }
-    } else {
+    if (!phrase) {
         return 'String is empty';
     }
+    if (typeof(phrase) !== 'string') {
+        return `Value given to function was of Data Type: ${typeof(phrase)}`;
+    }
+    return phrase.toLowerCase();
 }
 
 
