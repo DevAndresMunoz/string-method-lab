@@ -93,13 +93,14 @@ function convertToUpperCase(phrase) {
 }
 
 
-
 function trimString(text) {
-    if (typeof(text) == 'number') {
-        return 'Value given to function was of Data Type: number';
-    } else {
-        return text.trim();
+    if (!text) {
+        return 'String is empty';
     }
+    if (typeof(text) !== 'string') {
+        return `Value given to function was of Data Type: ${typeof(text)}`;
+    }
+    return text.trim();
 }
 
 
